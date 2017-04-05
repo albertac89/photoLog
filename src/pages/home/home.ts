@@ -6,6 +6,7 @@ import { Camera } from '@ionic-native/camera';
 import { Geolocation } from '@ionic-native/geolocation';
 
 import { User } from '../../models/user.model';
+import { Image } from '../../models/image.model';
 import { UserService } from '../../services/user/user.service';
 import { DataService } from '../../services/data/data.service';
 
@@ -17,7 +18,7 @@ import { ViewPage } from '../view/view';
 })
 export class HomePage {
   private user: User;
-  public images: any;
+  public images: Image[];
   public base64Image: string;
 
   constructor(public navCtrl: NavController,
@@ -35,7 +36,7 @@ export class HomePage {
     this.images = this.dataServices.getImages();
   }
 
-  takePicture() {
+  takePicture(): void {
     this.camera.getPicture({
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
@@ -51,7 +52,7 @@ export class HomePage {
     });
   }
 
-  showPrompt() {
+  showPrompt(): void {
     let prompt = this.alertCtrl.create({
       title: 'Save image',
       message: 'Add an image name',
@@ -78,7 +79,7 @@ export class HomePage {
           handler: data => {
             if(data.name && data.name.length > 0) {
               this.geolocation.getCurrentPosition().then((resp) => {
-                let image = {
+                let image: Image = {
                   src: this.base64Image,
                   name: data.name,
                   coords: resp.coords
@@ -101,7 +102,7 @@ export class HomePage {
     prompt.present();
   }
 
-  viewImage(image) {
+  viewImage(image: Image): void {
     this.navCtrl.push(ViewPage, {image: image});
   }
 }

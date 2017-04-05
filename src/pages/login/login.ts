@@ -24,8 +24,8 @@ export class LoginPage{
   }
 
   public doLogin() {
-    this.presentLoading();
     if(this.user.username && this.user.username.length > 0 && this.user.password && this.user.password.length > 0) {
+      this.presentLoading();
       setTimeout(() => {
         this.userServices.setUser(this.user);
         this.navCtrl.setRoot(HomePage);
