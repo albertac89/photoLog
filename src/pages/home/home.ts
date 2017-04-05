@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NavController, NavParams, AlertController, ToastController} from 'ionic-angular';
+import { NavController, NavParams, AlertController, ToastController, MenuController } from 'ionic-angular';
 
 import { Camera } from '@ionic-native/camera';
 import { Geolocation } from '@ionic-native/geolocation';
@@ -27,8 +27,10 @@ export class HomePage {
               public dataServices: DataService,
               public alertCtrl: AlertController,
               public toastCtrl: ToastController,
-              private geolocation: Geolocation
+              private geolocation: Geolocation,
+              public menu: MenuController
   ) {
+    this.menu.enable(true);
     this.user = this.userServices.getUser();
     this.images = this.dataServices.getImages();
   }
