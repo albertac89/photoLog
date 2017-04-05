@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{image.name}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="deleteImage(image)">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+
+  <img [src]="image.src"/>
+</ion-content>
