@@ -6,6 +6,7 @@ import { AboutPage } from '../pages/about/about';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { ViewPage } from '../pages/view/view';
+import { FormPage } from '../pages/form/form';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -23,7 +24,8 @@ import { User } from '../models/user.model';
     AboutPage,
     HomePage,
     LoginPage,
-    ViewPage
+    ViewPage,
+    FormPage
   ],
   imports: [
     FormsModule,
@@ -35,7 +37,8 @@ import { User } from '../models/user.model';
     AboutPage,
     HomePage,
     LoginPage,
-    ViewPage
+    ViewPage,
+    FormPage
   ],
   providers: [
     StatusBar,
