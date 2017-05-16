@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MenuController, NavController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 
@@ -11,7 +11,7 @@ import {Validators, FormGroup, FormControl } from '@angular/forms';
   selector: 'page-login',
   templateUrl: 'login.html'
 })
-export class LoginPage implements OnInit{
+export class LoginPage{
   public loading;
   private loginForm: FormGroup;
 
@@ -21,9 +21,6 @@ export class LoginPage implements OnInit{
               public user: User,
               public loadingCtrl: LoadingController) {
     this.menuCtrl.enable(false);
-  }
-
-  ngOnInit() {
     this.loginForm = new FormGroup({
       'user': new FormGroup({
         'username': new FormControl('', Validators.required),
@@ -31,7 +28,6 @@ export class LoginPage implements OnInit{
       })
     });
   }
-
 
   public doLogin() {
     console.log(this.loginForm.get('user.username').value);
